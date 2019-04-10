@@ -7,7 +7,6 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="amuse"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -15,6 +14,7 @@ ZSH_THEME="amuse"
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="amuse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,8 +59,24 @@ ZSH_THEME="amuse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git zsh-syntax-highlighting zsh-autosuggestions npm osx yarn
+  git zsh-syntax-highlighting zsh-autosuggestions npm osx
 )
+
+#################################################
+# tab - Open the current directory in a new tab
+# ofd - Open the current directory in a Finder window
+# pfd - Return the path of the frontmost Finder window
+# pfs - Return the current Finder selection
+# cdf - cd to the current Finder directory
+# pushdf - pushd to the current Finder directory
+# quick-look - Quick-Look a specified file
+# man-preview - Open a specified man page in Preview app
+# showfiles - Show hidden files
+# hidefiles - Hide the hidden files
+# itunes - Control iTunes. User itunes -h for usage details
+# spotify - Control Spotify and search by artist, album, track and etc.
+#################################################
+
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -89,9 +105,5 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshe="code ~/.zshrc"
 alias soundhound="spotify play uri spotify:user:bc0x:playlist:19e8F6hIso2ZwkifBaHJt8"
 alias shuffle="spotify toggle shuffle"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export NODE_PATH=/usr/local/bin/node:/usr/local/lib/node_modules:{brcox}/lib/node_modules:/Users/brcox/.nvm/versions/node/v10.15.0/lib/node_modules

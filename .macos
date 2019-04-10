@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # ~/.macos — https://mths.be/macos
-# Modified by Kent C. Dodds
+# Modified by Brandon Cox
 # Run without downloading:
-# curl https://raw.githubusercontent.com/kentcdodds/dotfiles/master/.macos | bash
+# curl https://raw.githubusercontent.com/bc0x/dotfiles/master/.macos | bash
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -29,13 +29,6 @@ echo "installing homebrew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 echo "brew installing stuff"
-# hub: a github-specific version of git
-# libdvdcss: makes handbreak capable of ripping DVDs
-# ripgrep: rg is faster than alternatives
-# imagemagick: eventually I will need this for something
-# ffmpeg: eventually I'll need this for something
-# tree: really handy for listing out directories in text
-# bat: A cat(1) clone with syntax highlighting and Git integration.
 brew install git hub bat zsh zsh-completions
 
 echo "setting zsh as default shell"
