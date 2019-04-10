@@ -16,7 +16,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-# Kent's Customizations                                                       #
+# Brandons's Customizations                                                   #
 ###############################################################################
 
 echo "Hello $(whoami)! Let's get you set up."
@@ -36,9 +36,7 @@ echo "brew installing stuff"
 # ffmpeg: eventually I'll need this for something
 # tree: really handy for listing out directories in text
 # bat: A cat(1) clone with syntax highlighting and Git integration.
-brew install git hub libdvdcss ripgrep imagemagick bash-completion watchman tree bat
-# yarn: without node because we'll get it from installing n later
-brew install yarn --without-node
+brew install git hub bat
 
 echo "installing node (via n-install)"
 curl -L https://git.io/n-install | bash
@@ -50,8 +48,8 @@ echo "installing a few global npm packages"
 npm install --global serve diff-so-fancy fkill-cli npm-quick-run semantic-release-cli
 
 echo "installing apps with brew cask"
-brew cask install alfred google-chrome firefox brave-browser bettertouchtool divvy \
-bartender google-drive-file-stream itsycal visual-studio-code 1password dash \
+brew cask install google-chrome brave-browser fantastical divvy \
+google-drive-file-stream itsycal visual-studio-code 1password dash \
 screenflow marshallofsound-google-play-music-player virtualbox skype rocket \
 sublime-text vlc discord obs handbrake zoomus betterzip avibrazil-rdm sip \
 qlcolorcode qlmarkdown qlstephen quicklook-json webpquicklook \
