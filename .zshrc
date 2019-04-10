@@ -13,7 +13,7 @@ export HISTFILESIZE=10000
 export PATH=/usr/local/bin:$PATH:./node_modules/.bin;
 
 # CDPATH ALTERATIONS
-export CDPATH=.:$HOME:$HOME/code:$HOME/Desktop
+export CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -110,14 +110,9 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-
-# Custom Aliases
+############################################
+# Aliases                                  #
+############################################
 alias c="code .";
 alias ll="ls -1a";
 alias ..="cd ../";
@@ -125,22 +120,35 @@ alias ..l="cd ../ && ll";
 alias pg="echo 'Pinging Google' && ping www.google.com";
 alias sb="source ~/.bash_profile";
 alias sz="source ~/.zshrc";
-alias de="cd ~/Desktop";
-alias d="cd ~/code";
+alias dev="cd ~/dev";
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
 alias npm-update="npx npm-check -u";
-
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias week='date +%V'
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 ## git aliases
-function gc { git commit -m "$@"; }
+# use hub for git
+alias git=hub
 alias gs="git status";
 alias gp="git pull";
 alias gf="git fetch";
 alias gpush="git push";
 alias gd="git diff";
 alias ga="git add .";
-
 ## npm aliases
 alias ni="npm install";
 alias nrs="npm run start -s --";
@@ -153,12 +161,17 @@ alias rmn="rm -rf node_modules";
 alias flush-npm="rm -rf node_modules && npm i && say NPM is done";
 alias nicache="npm install --prefer-offline";
 alias nioff="npm install --offline";
-
+# random
 alias soundhound="spotify play uri spotify:user:bc0x:playlist:19e8F6hIso2ZwkifBaHJt8"
 alias shuffle="spotify toggle shuffle"
 
-## use hub for git
-alias git=hub
-
-# Custom functions
-mg () { mkdir "$@" && cd "$@" || exit; }
+############################################
+# Functions                                #
+############################################
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+function gc {
+  git commit -m "$@";
+}
