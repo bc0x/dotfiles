@@ -4,6 +4,17 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+# history size
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+
+#PATH ALTERATIONS
+## Node
+export PATH=/usr/local/bin:$PATH:./node_modules/.bin;
+
+# CDPATH ALTERATIONS
+export CDPATH=.:$HOME:$HOME/code:$HOME/Desktop
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -105,5 +116,49 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+
+# Custom Aliases
+alias c="code .";
+alias ll="ls -1a";
+alias ..="cd ../";
+alias ..l="cd ../ && ll";
+alias pg="echo 'Pinging Google' && ping www.google.com";
+alias sb="source ~/.bash_profile";
+alias sz="source ~/.zshrc";
+alias de="cd ~/Desktop";
+alias d="cd ~/code";
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
+alias npm-update="npx npm-check -u";
+
+## git aliases
+function gc { git commit -m "$@"; }
+alias gs="git status";
+alias gp="git pull";
+alias gf="git fetch";
+alias gpush="git push";
+alias gd="git diff";
+alias ga="git add .";
+
+## npm aliases
+alias ni="npm install";
+alias nrs="npm run start -s --";
+alias nrb="npm run build -s --";
+alias nrd="npm run dev -s --";
+alias nrt="npm run test -s --";
+alias nrtw="npm run test:watch -s --";
+alias nrv="npm run validate -s --";
+alias rmn="rm -rf node_modules";
+alias flush-npm="rm -rf node_modules && npm i && say NPM is done";
+alias nicache="npm install --prefer-offline";
+alias nioff="npm install --offline";
+
 alias soundhound="spotify play uri spotify:user:bc0x:playlist:19e8F6hIso2ZwkifBaHJt8"
 alias shuffle="spotify toggle shuffle"
+
+## use hub for git
+alias git=hub
+
+# Custom functions
+mg () { mkdir "$@" && cd "$@" || exit; }

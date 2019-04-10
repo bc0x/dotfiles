@@ -1,37 +1,30 @@
-source /usr/share/www/intranet.directstartv.com/scripts/srcsync-dir/helper.sh
-export CLICOLOR=1  # same as 'alias ls=ls -G' which I also have set
-#export LSCOLORS=exfxcxdxbxegedabagacad
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=Fafacxdxbxegedabagacad
 
-export LSCOLORS=gxfxcxdxbxegedabagacad
+# PROMPT STUFF
+GREEN=$(tput setaf 2);
+YELLOW=$(tput setaf 3);
+RESET=$(tput sgr0);
 
-# Enable color in grep
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='3;33'
+# history size
+HISTSIZE=5000
+HISTFILESIZE=10000
 
-# History: don't store duplicates
-export HISTCONTROL=erasedups
-# History: 10,000 entries
-export HISTSIZE=10000
 
-alias phpx='XDEBUG_CONFIG="profiler_enable=1" php'
-alias locate="mdfind -name $1"
-alias deploy="/usr/share/www/intranet.directstartv.com/scripts/srcsync-dir/deploy"
-alias rvdiffr='/usr/share/www/intranet.directstartv.com/scripts/srcsync-dir/rvdiffr'
-alias zr='sudo /usr/local/zend/bin/zendctl.sh restart-apache'
-alias rvrepo='php /usr/share/www/intranet.directstartv.com/scripts/srcsync-dir/repo_sync.php'
-alias repo_sync='php /usr/share/www/intranet.directstartv.com/scripts/srcsync-dir/repo_sync.php'
-alias gf='git-flow'
-alias redis-start='sudo launchctl start io.redis.redis-server'
-alias redis-stop='sudo launchctl stop io.redis.redis-server'
+export PATH=/usr/share/www/intranet.directstartv.com/scripts/srcsync-dir:/usr/local/bin:/usr/share/www/devops/scripts:$PATH;
+
+#PATH ALTERATIONS
+## Node
+export PATH="/usr/local/bin:$PATH:./node_modules/.bin";
+
+# CDPATH ALTERATIONS
+export CDPATH=.:$HOME:$HOME/code:$HOME/Desktop
 
 # general shortcuts
-# alias c='cd '
+alias locate="mdfind -name $1"
 alias mv='mv -i'
 alias rm='rm -i'
-
-# Need to do this so you use backspace in screen...I have no idea why
-alias screen='TERM=screen screen'
-
 # listing files
 alias l='ls -al'
 alias ltr='ls -ltr'
@@ -41,8 +34,50 @@ alias tf='tail -f -n 100'
 
 # editing shortcuts
 alias m='mate'
-alias v='vim'
-alias sublime='open -a "/Applications/Sublime Text 2.app"'
+alias c='code .'
+
+
+# Custom Aliases
+alias c="code .";
+alias ll="ls -1a";
+alias ..="cd ../";
+alias ..l="cd ../ && ll";
+alias pg="echo 'Pinging Google' && ping www.google.com";
+alias sb="source ~/.bash_profile";
+alias sz="source ~/.zshrc";
+alias de="cd ~/Desktop";
+alias d="cd ~/code";
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
+alias npm-update="npx npm-check -u";
+
+## git aliases
+function gc { git commit -m "$@"; }
+alias gs="git status";
+alias gp="git pull";
+alias gf="git fetch";
+alias gpush="git push";
+alias gd="git diff";
+alias ga="git add .";
+
+## npm aliases
+alias ni="npm install";
+alias nrs="npm run start -s --";
+alias nrb="npm run build -s --";
+alias nrd="npm run dev -s --";
+alias nrt="npm run test -s --";
+alias nrtw="npm run test:watch -s --";
+alias nrv="npm run validate -s --";
+alias rmn="rm -rf node_modules";
+alias flush-npm="rm -rf node_modules && npm i && say NPM is done";
+alias nicache="npm install --prefer-offline";
+alias nioff="npm install --offline";
+## use hub for git
+alias git=hub
+
+# Custom functions
+mg () { mkdir "$@" && cd "$@" || exit; }
 
 # grep for a process
 function psg {

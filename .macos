@@ -61,9 +61,8 @@ echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
 
 echo "cloning dotfiles"
 git clone git@github.com:bc0x/dotfiles.git "${HOME}/dotfiles"
-ln -s "${HOME}/dotfiles/.bash_profile" "${HOME}/.bash_profile"
+ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
-ln -s "${HOME}/dotfiles/.my_bin" "${HOME}/.my_bin"
 
 echo "making system modifications:"
 
