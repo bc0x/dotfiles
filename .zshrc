@@ -70,7 +70,7 @@ ZSH_THEME="amuse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git zsh-autosuggestions npm osx zsh-syntax-highlighting
+  git zsh-autosuggestions npm osx zsh-syntax-highlighting docker docker-compose
 )
 
 #################################################
