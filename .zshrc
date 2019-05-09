@@ -175,6 +175,12 @@ function mkd() {
 function gc {
   git commit -m "$@";
 }
+function new-svelte(){
+  npx degit sveltejs/template "$1"
+  cd "$1"
+  npx pnpm install
+  c
+}
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
