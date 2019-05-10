@@ -178,7 +178,13 @@ function gc {
 function new-svelte(){
   npx degit sveltejs/template "$1"
   cd "$1"
-  npx pnpm install
+  npm i
+  c
+}
+function new-sapper(){
+  npx degit sveltejs/sapper-template#rollup "$1"
+  cd "$1"
+  npm i
   c
 }
 
