@@ -10,7 +10,7 @@ export HISTFILESIZE=10000
 
 #PATH ALTERATIONS
 ## Node
-export PATH=/usr/local/bin:$PATH:./node_modules/.bin;
+export PATH=/usr/local/bin:$PATH:./node_modules/.bin:/Library/Java/apache-maven-3.5.2/bin;
 
 # CDPATH ALTERATIONS
 export CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
@@ -188,6 +188,10 @@ function new-sapper(){
   c
 }
 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
+export JAVA_OPTS="-Xmx1024m -Dsun.lang.ClassLoader.allowArraySyntax=true"
+export MAVEN_OPTS="-Xmx2048m -XX:ReservedCodeCacheSize=128m -Dsun.lang.ClassLoader.allowArraySyntax=true"
+
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -195,3 +199,13 @@ if [ -f '/Users/brandon.cox/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/brandon.cox/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/brandon.cox/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/brandon.cox/dev/internal/slalom-seating-backend/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/brandon.cox/dev/internal/slalom-seating-backend/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/brandon.cox/dev/internal/slalom-seating-backend/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/brandon.cox/dev/internal/slalom-seating-backend/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/brandon.cox/dev/internal/slalom-seating-backend/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/brandon.cox/dev/internal/slalom-seating-backend/node_modules/tabtab/.completions/slss.zsh
