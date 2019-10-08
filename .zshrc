@@ -25,7 +25,10 @@ export CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
 # looking in ~/.oh-my-zsh/themes/
 # An empty array have no effect
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-ZSH_THEME="amuse"
+ZSH_THEME="dracula"
+DRACULA_DISPLAY_TIME=1
+DRACULA_DISPLAY_CONTEXT=1
+DRACULA_ARROW_ICON="-> "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
