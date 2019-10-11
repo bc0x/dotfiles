@@ -28,7 +28,6 @@ export CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
 ZSH_THEME="dracula"
 DRACULA_DISPLAY_TIME=1
 DRACULA_DISPLAY_CONTEXT=1
-DRACULA_ARROW_ICON="-> "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -153,6 +152,7 @@ alias gf="git fetch";
 alias gpush="git push";
 alias gd="git diff";
 alias ga="git add .";
+alias gundo="git reset --soft HEAD~1"
 ## npm aliases
 alias ni="npm install";
 alias nrs="npm run start -s --";
