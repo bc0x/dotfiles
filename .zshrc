@@ -131,6 +131,8 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias week='date +%V'
 alias py='python3'
+alias python='/usr/local/bin/python3'
+alias pip='/usr/local/bin/pip3'
 # Empty the Trash on all mounted volumes and the main HDD.
 # Also, clear Apple’s System Logs to improve shell startup speed.
 # Finally, clear download history from quarantine. https://mths.be/bum
