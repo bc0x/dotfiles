@@ -21,8 +21,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "Hello $(whoami)! Let's get you set up."
 
-echo "mkdir -p ${HOME}/dev"
-mkdir -p "${HOME}/dev"
+echo "mkdir -p $HOME/dev"
+mkdir -p "$HOME/dev"
 
 echo "installing homebrew"
 # install homebrew https://brew.sh
@@ -55,10 +55,10 @@ eval "$(ssh-agent -s)"
 echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
 
 echo "cloning dotfiles"
-git clone git@github.com:bc0x/dotfiles.git "${HOME}/dotfiles"
-ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
-ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
-ln -s "${HOME}/dotfiles/.gitconfig" "${HOME}/.gitconfig"
+git clone git@github.com:bc0x/dotfiles.git "$HOME/dotfiles"
+ln -s "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
+ln -s "$HOME/dotfiles/.gitignore_global" "$HOME/.gitignore_global"
+ln -s "$HOME/dotfiles/.gitconfig" "$HOME/.gitconfig"
 
 echo "making system modifications:"
 
@@ -261,7 +261,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -289,7 +289,7 @@ defaults write com.apple.finder QuitMenuItem -bool true
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/Desktop/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -455,7 +455,7 @@ defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
 # Reset Launchpad, but keep the desktop wallpaper intact
-# find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
+# find "$HOME/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
 # Add iOS & Watch Simulator to Launchpad
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
@@ -707,7 +707,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
 # Install the Solarized Dark theme for iTerm
-# open "${HOME}/init/Solarized Dark.itermcolors"
+# open "$HOME/init/Solarized Dark.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
 # defaults write com.googlecode.iterm2 PromptOnQuit -bool false
