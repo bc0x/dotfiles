@@ -1,0 +1,9 @@
+[user]
+  name = Brandon Cox
+  email = brandon.cox@slalom.com
+[push]
+  default = current
+[core]
+	excludesfile = /Users/brandon.cox/.gitignore_global
+[init]
+	defaultBranch = main
