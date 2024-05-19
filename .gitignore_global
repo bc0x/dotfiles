@@ -1,0 +1,13 @@
+# Mac
+.DS_Store
+
+# npm
+npm-debug.log
+
+# Over-arching stuff
+*.ignored/
+*.ignored.*
+
+# eslint
+.eslintcache
+

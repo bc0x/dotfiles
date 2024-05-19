@@ -1,0 +1,6 @@
+[user]
+  name = Brandon Cox
+  email = brandon.cox@pm.me
+
+[init]
+	defaultBranch = main
