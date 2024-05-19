@@ -161,7 +161,7 @@ alias cat='bat --paging never --decorations never --plain'
 alias localip='ipconfig getifaddr en0'
 
 # Lock the screen (when going AFK)
-alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias afk='/S ystem/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
