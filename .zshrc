@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="miloshadzic"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "miloshadzic" )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -122,6 +122,8 @@ PATH="$PATH:$HOME/.bin:$HOME/.local/bin";
 PATH="$PATH:$HOME/.my_bin";
 # npm.im/n
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *"$N_PREFIX/bin"* ]] || PATH="$N_PREFIX/bin:$PATH"  # Added by n-install (see http://git.io/n-install-repo).
+# elixir
+PATH="$PATH:$HOME/.mix/escripts"
 
 # CDPATH ALTERATIONS
 CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
