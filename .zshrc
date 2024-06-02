@@ -124,6 +124,8 @@ PATH="$PATH:$HOME/.my_bin";
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *"$N_PREFIX/bin"* ]] || PATH="$N_PREFIX/bin:$PATH"  # Added by n-install (see http://git.io/n-install-repo).
 # elixir
 PATH="$PATH:$HOME/.mix/escripts"
+#rebar3
+PATH="$PATH:~/.cache/rebar3/bin"
 
 # CDPATH ALTERATIONS
 CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
@@ -131,7 +133,7 @@ CDPATH=.:$HOME:$HOME/dev:$HOME/Desktop
 # Custom Aliases
 # alias code="\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\""
 function c { code ${@:-.} }
-alias ll="ls -1a";
+alias ll="ls -1la";
 alias ..="cd ../";
 alias ..l="cd ../ && ll";
 alias pg="echo 'Pinging Google' && ping www.google.com";
@@ -167,4 +169,7 @@ alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Copy public key to clipboard:
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
